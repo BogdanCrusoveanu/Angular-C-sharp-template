@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div *ngIf="!registerMode && !loggedIn()" style="text-align: center">
+    <h1>Sign Up</h1>
+    <p class="lead">Click the register button to create an account</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg" (click)="registerToggle()">
+        Register
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode && !loggedIn()" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register
+          (cancelRegister)="cancelRegisterMode($event)"
+        ></app-register>
+      </div>
+    </div>
+  </div>
+</div>
